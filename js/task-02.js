@@ -7,30 +7,16 @@ const ingredients = [
   'Condiments',
 ];
 
-const ingredientsUL = document.getElementById("ingredients");
-let ulInnerHTML = "";
+const ingredientsULElement = document.getElementById("ingredients");
+const ingredientsLIElements = [];
 
 ingredients.forEach((ingredient) => {
-  const li = document.createElement("li");
+  const ingredientLIElement = document.createElement("li");
 
-  li.textContent = ingredient;
-  li.classList.add("item");
+  ingredientLIElement.textContent = ingredient;
+  ingredientLIElement.classList.add("item");
 
-  /*
-  # Wolałbym użyć tego fragmentu kodu ale w zadaniu 
-  # OBOWIĄZKOWO trzeba użyć metody 'createElement'.
-
-  ulInnerHTML += `
-    <li class="item">${ingredient}</li>
-  `;
-  */
-
-  ulInnerHTML += li.outerHTML;
+  ingredientsLIElements.push(ingredientLIElement);
 });
 
-/*
-# W zadaniu trzeba w jednej operacji dołaczyć 
-# wszystkie elementy LI na raz do ul#ingredients.
-*/
-
-ingredientsUL.insertAdjacentHTML("afterbegin", ulInnerHTML);
+ingredientsULElement.append(...ingredientsLIElements);
