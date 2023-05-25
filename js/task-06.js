@@ -11,7 +11,7 @@ const onBlur = (event) => {
     inputElement.classList.remove("valid");
   }
 
-  inputElement.value.length > inputElement.dataset.length
+  inputElement.value.length != inputElement.dataset.length
     ? inputElement.classList.add("invalid")
     : inputElement.classList.add("valid");
 };
